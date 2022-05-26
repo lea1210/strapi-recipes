@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recipes",
+  "info": {
+    "singularName": "recipe",
+    "pluralName": "recipes",
+    "displayName": "Recipe",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "preperation": {
+      "type": "richtext"
+    },
+    "vegan": {
+      "type": "boolean"
+    },
+    "vegetarian": {
+      "type": "boolean"
+    },
+    "glutenfree": {
+      "type": "boolean"
+    },
+    "lactosefree": {
+      "type": "boolean"
+    },
+    "ingredients": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ingredient.ingredient",
+      "mappedBy": "recipes"
+    },
+    "ingredientlist": {
+      "type": "richtext"
+    }
+  }
+}
